@@ -66,12 +66,19 @@
         $arrayPostData['messages'][1]['stickerId'] = "131";
         replyMsg($arrayHeader,$arrayPostData);
     }
-/*
+
     if($message == "Click A"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-        $arrayPostData['messages'][0]['type'] = "bubble";
-        $arrayPostData['messages'][0]['body'] = "อย่าทิ้งกันไป";
-    }*/
+        $arrayPostData['messages'][0]['type'] = "flex";
+        $arrayPostData['messages'][0]['altText'] = "this is a flex message";
+        $arrayPostData['messages'][0]['contents']['type'] = "bubble";
+        $arrayPostData['messages'][0]['contents']['body']['type'] = "box";
+        $arrayPostData['messages'][0]['contents']['body']['layout'] = "vertical";
+        $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][0]['type'] = "hello";
+        $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][1]['type'] = "text";
+        $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][1]['type'] = "WIIS";
+    }
 function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
