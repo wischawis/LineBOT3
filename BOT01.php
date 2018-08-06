@@ -67,7 +67,7 @@
         replyMsg($arrayHeader,$arrayPostData);
     }
 
-    if($message == "Click A"){
+    //if($message == "Click A"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 /*
         $arrayPostData['messages'][0]['type'] = "flex";
@@ -83,7 +83,7 @@
 	$arrayPostData['messages'][0]['type'] = "text";
         $arrayPostData['messages'][0]['text'] = "ABC";
         replyMsg($arrayHeader,$arrayPostData);
-    }
+   // }
 function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
