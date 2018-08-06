@@ -10,13 +10,13 @@
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 
     //============
-/*
+
     $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient(getenv($accessToken));
     $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => getenv($channelSecret)]);
     $signature = $_SERVER['HTTP_' . \LINE\LINEBot\Constant\HTTPHeader::LINE_SIGNATURE];
     $events = $bot->parseEventRequest(file_get_contents('php://input'), $signature);
     replyMsg($event->getReplyToken(),new \LINE\LINEBot\MessageBuilder\TextMessageBuilder(createNewRichmenu(getenv($accessToken))));
-*/   
+ 
    //============
 
     //รับข้อความจากผู้ใช้
