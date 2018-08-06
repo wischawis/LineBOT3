@@ -78,6 +78,7 @@
         $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][0]['type'] = "hello";
         $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][1]['type'] = "text";
         $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][1]['type'] = "WIIS";
+        replyMsg($arrayHeader,$arrayPostData);
     }
 function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
