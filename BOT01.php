@@ -5,6 +5,9 @@
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
     
+    $content2 = file_get_contents('flex01.json');
+    $arrayJson2 = json_decode($content2, true);
+    
     $arrayHeader = array();
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
@@ -80,15 +83,8 @@
         $arrayPostData['messages'][0]['contents']['body']['contents'][1]['type'] = "text";
         $arrayPostData['messages'][0]['contents']['body']['contents'][1]['type'] = "WIIS";
 */
-	$arrayPostData['messages'][0]['type'] = "bubble";
-	$arrayPostData['messages'][0]['body']['type'] = "box";
-	$arrayPostData['messages'][0]['body']['layout'] = "vertical";
-	$arrayPostData['messages'][0]['body']['contents'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['body']['contents'][0]['text'] = "hello";
-	$arrayPostData['messages'][0]['body']['contents'][0]['size'] = "md";
-	$arrayPostData['messages'][0]['body']['contents'][0]['align'] = "center";
-	$arrayPostData['messages'][0]['body']['contents'][0]['color'] = "#ff0000";
-        replyMsg($arrayHeader,$arrayPostData);
+
+        replyMsg($arrayHeader,$arrayJson2);
    // }
 function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
