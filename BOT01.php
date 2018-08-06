@@ -12,16 +12,6 @@
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 
-    //============
-/*
-    $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient(getenv($accessToken));
-    $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => getenv($channelSecret)]);
-    $signature = $_SERVER['HTTP_' . \LINE\LINEBot\Constant\HTTPHeader::LINE_SIGNATURE];
-    $events = $bot->parseEventRequest(file_get_contents('php://input'), $signature);
-    replyMsg($event->getReplyToken(),new \LINE\LINEBot\MessageBuilder\TextMessageBuilder(createNewRichmenu(getenv($accessToken))));
- */
-   //============
-
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
 
@@ -74,23 +64,6 @@
         $arrayPostData['messages'][1]['stickerId'] = "131";
         replyMsg($arrayHeader,$arrayPostData);
     }
-
-    //if($message == "Click A"){
-        $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-/*
-        $arrayPostData['messages'][0]['type'] = "flex";
-        $arrayPostData['messages'][0]['altText'] = "this is a flex message";
-        $arrayPostData['messages'][0]['contents']['type'] = "bubble";
-        $arrayPostData['messages'][0]['contents']['body']['type'] = "box";
-        $arrayPostData['messages'][0]['contents']['body']['layout'] = "vertical";
-        $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "hello";
-        $arrayPostData['messages'][0]['contents']['body']['contents'][1]['type'] = "text";
-        $arrayPostData['messages'][0]['contents']['body']['contents'][1]['type'] = "WIIS";
-*/
-
-        replyMsg($arrayHeader,$arrayJson2);
-   // }
 function replyMsg($arrayHeader,$arrayPostData){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
         $ch = curl_init();
