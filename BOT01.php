@@ -1,13 +1,22 @@
 <?php
     $accessToken = "nzWgZ+roovjnh4gQnbqRwGSIbyfPLV1JnqXShFM8a+ffcbWTUh5nZj/Qy9eoIR06efK7PD8dE/HY3k0P8e4sXsOrBLMuqf0jw9juz1szA9WCZaQBhcV1o2I15B4QMz+z28iL4lGARRXuXAFtHqF+SgdB04t89/1O/w1cDnyilFU=";//copy Channel access token ตอนที่ตั้งค่ามาใส่
-    
+    $channelSecret = "dfc31bd1338a741ed86ecbf798b0bf73";    
+
     $content = file_get_contents('php://input');
     $arrayJson = json_decode($content, true);
     
     $arrayHeader = array();
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
-    
+
+    //============
+    $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient(getenv($accessToken));
+    $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => getenv($channelSecret)]);
+    $signature = $_SERVER['HTTP_' . \LINE\LINEBot\Constant\HTTPHeader::LINE_SIGNATURE];
+    $events = $bot->parseEventRequest(file_get_contents('php://input'), $signature);
+    replyMsg($event->getReplyToken(),new \LINE\LINEBot\MessageBuilder\TextMessageBuilder(createNewRichmenu(getenv($accessToken))));
+    //============
+
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
 #ตัวอย่าง Message Type "Text"
