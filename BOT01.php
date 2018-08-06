@@ -16,9 +16,9 @@
     $message = $arrayJson['events'][0]['message']['text'];
 
     $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-    $arrayPostData['messages'][0]['type'] = "text";
-    $arrayPostData['messages'][0]['text'] = $content2;
-    replyMsg($arrayHeader,$arrayPostData);
+    //$arrayPostData['messages'][0]['type'] = "text";
+   // $arrayPostData['messages'][0]['text'] = $content2;
+    replyMsg($arrayHeader,$content2);
 
 #ตัวอย่าง Message Type "Text"
     if($message == "สวัสดี"){
