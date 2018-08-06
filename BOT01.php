@@ -16,7 +16,7 @@
     $message = $arrayJson['events'][0]['message']['text'];
 
     $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-    $arrayPostData['messages'][0] = $content2;
+    $arrayPostData['messages'][0] = $arrayJson2;
     replyMsg($arrayHeader,$arrayPostData);
 
 #ตัวอย่าง Message Type "Text"
