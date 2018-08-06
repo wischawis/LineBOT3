@@ -74,10 +74,10 @@
         $arrayPostData['messages'][0]['contents']['type'] = "bubble";
         $arrayPostData['messages'][0]['contents']['body']['type'] = "box";
         $arrayPostData['messages'][0]['contents']['body']['layout'] = "vertical";
-        $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][0]['type'] = "text";
-        $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][0]['type'] = "hello";
-        $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][1]['type'] = "text";
-        $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][1]['type'] = "WIIS";
+        $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "text";
+        $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "hello";
+        $arrayPostData['messages'][0]['contents']['body']['contents'][1]['type'] = "text";
+        $arrayPostData['messages'][0]['contents']['body']['contents'][1]['type'] = "WIIS";
         replyMsg($arrayHeader,$arrayPostData);
     }
 function replyMsg($arrayHeader,$arrayPostData){
