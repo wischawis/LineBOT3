@@ -15,15 +15,23 @@
     //รับข้อความจากผู้ใช้
     $message = $arrayJson['events'][0]['message']['text'];
 
-    $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-    $arrayPostData['messages'][0]['type'] = "bubble";
-	$arrayPostData['messages'][0]['body']['type'] = "box";
-	$arrayPostData['messages'][0]['body']['layout'] = "vertical";
-	$arrayPostData['messages'][0]['body']['contents'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['body']['contents'][0]['text'] = "hello";
-	$arrayPostData['messages'][0]['body']['contents'][0]['size'] = "md";
-	$arrayPostData['messages'][0]['body']['contents'][0]['align'] = "center";
-	$arrayPostData['messages'][0]['body']['contents'][0]['color'] = "#ff0000";
+    	$arrayContent1 = array();
+	$arrayContent1['type'] = 'text';
+	$arrayContent1['text'] = 'First bubble';
+
+	$arrayContent2 = array();
+	$arrayContent2['type'] = 'box';
+	$arrayContent2['layout'] = 'vertical';
+	$arrayContent2['contents'][0] = $arrayContent1;
+
+	$arrayContent3 = array();
+	$arrayContent3['type'] = 'bubble';
+	$arrayContent3['body'] = $arrayContent2;
+
+	$arrayPostData['to'] = "U11a10836211ed00c4c5b7785f3c817c5";
+	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+	$arrayPostData['messages'][0]['type'] = "carousel";
+	$arrayPostData['messages'][0]['contents'][0] = $arrayContent3;
     replyMsgFlex($arrayHeader,$arrayPostData);
 
 #ตัวอย่าง Message Type "Text"
