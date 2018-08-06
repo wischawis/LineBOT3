@@ -69,7 +69,7 @@
 
     //if($message == "Click A"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-
+/*
         $arrayPostData['messages'][0]['type'] = "flex";
         $arrayPostData['messages'][0]['altText'] = "this is a flex message";
         $arrayPostData['messages'][0]['contents']['type'] = "bubble";
@@ -79,9 +79,15 @@
         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "hello";
         $arrayPostData['messages'][0]['contents']['body']['contents'][1]['type'] = "text";
         $arrayPostData['messages'][0]['contents']['body']['contents'][1]['type'] = "WIIS";
-
-	//$arrayPostData['messages'][0]['type'] = "text";
-        //$arrayPostData['messages'][0]['text'] = "ABC";
+*/
+	$arrayPostData['messages'][0]['type'] = "bubble";
+	$arrayPostData['messages'][0]['body']['type'] = "box";
+	$arrayPostData['messages'][0]['body']['layout'] = "vertical";
+	$arrayPostData['messages'][0]['body']['contents'][0]['type'] = "text";
+	$arrayPostData['messages'][0]['body']['contents'][0]['text'] = "hello";
+	$arrayPostData['messages'][0]['body']['contents'][0]['size'] = "md";
+	$arrayPostData['messages'][0]['body']['contents'][0]['align'] = "center";
+	$arrayPostData['messages'][0]['body']['contents'][0]['color'] = "#ff0000";
         replyMsg($arrayHeader,$arrayPostData);
    // }
 function replyMsg($arrayHeader,$arrayPostData){
