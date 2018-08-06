@@ -1,0 +1,42 @@
+{
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "horizontal",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://toscaworld.files.wordpress.com/2014/06/wpid-a2fd688df2c24000.png",
+            "aspectRatio": "1:2",
+            "aspectMode": "cover"
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "flex=1",
+            "flex": 1,
+            "gravity": "center"
+          },
+          {
+            "type": "separator"
+          },
+          {
+            "type": "text",
+            "text": "flex=1",
+            "flex": 1,
+            "gravity": "center"
+          }
+        ]
+      }
+    ]
+  }
+}
