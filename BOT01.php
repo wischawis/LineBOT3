@@ -16,7 +16,14 @@
     $message = $arrayJson['events'][0]['message']['text'];
 
     $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-    $arrayPostData['messages'][0] = $arrayJson2;
+    $arrayPostData['messages'][0]['type'] = "bubble";
+	$arrayPostData['messages'][0]['body']['type'] = "box";
+	$arrayPostData['messages'][0]['body']['layout'] = "vertical";
+	$arrayPostData['messages'][0]['body']['contents'][0]['type'] = "text";
+	$arrayPostData['messages'][0]['body']['contents'][0]['text'] = "hello";
+	$arrayPostData['messages'][0]['body']['contents'][0]['size'] = "md";
+	$arrayPostData['messages'][0]['body']['contents'][0]['align'] = "center";
+	$arrayPostData['messages'][0]['body']['contents'][0]['color'] = "#ff0000";
     replyMsg($arrayHeader,$arrayPostData);
 
 #ตัวอย่าง Message Type "Text"
