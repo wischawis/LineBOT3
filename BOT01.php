@@ -12,28 +12,6 @@
     $arrayHeader[] = "Content-Type: application/json";
     $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 
-    //รับข้อความจากผู้ใช้
-    $message = $arrayJson['events'][0]['message']['text'];
-
-    	$arrayContent1 = array();
-	$arrayContent1['type'] = 'text';
-	$arrayContent1['text'] = 'First bubble';
-
-	$arrayContent2 = array();
-	$arrayContent2['type'] = 'box';
-	$arrayContent2['layout'] = 'vertical';
-	$arrayContent2['contents'][0] = $arrayContent1;
-
-	$arrayContent3 = array();
-	$arrayContent3['type'] = 'bubble';
-	$arrayContent3['body'] = $arrayContent2;
-
-	$arrayPostData['to'] = "U11a10836211ed00c4c5b7785f3c817c5";
-	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-	$arrayPostData['messages'][0]['type'] = "carousel";
-	$arrayPostData['messages'][0]['contents'][0] = $arrayContent3;
-    replyMsgFlex($arrayHeader,$arrayPostData);
-
 #ตัวอย่าง Message Type "Text"
     if($message == "สวัสดี"){
         $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
@@ -104,5 +82,18 @@ function replyMsgFlex($arrayHeader,$arrayPostData){
         $result = curl_exec($ch);
         curl_close ($ch);
     }
+function rich_menu_2($arrayHeader,$arrayPostData){
+		$strUrl = "https://api.line.me/v2/bot/richmenu";
+        $ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL,$strUrl);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);    
+        curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($arrayPostData));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $result = curl_exec($ch);
+        curl_close ($ch);
+	}
    exit;
 ?>
